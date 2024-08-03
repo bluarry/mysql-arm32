@@ -33,4 +33,4 @@ jobs:
         context: .
         push: true
         platforms: linux/arm/v7
-        tags: bluarry114/mysql:5.7
+        tags: bluarry114/mysql:5.7.1
