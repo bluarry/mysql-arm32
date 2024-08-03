@@ -6,6 +6,8 @@ RUN useradd -r -g mysql mysql
 
 RUN apt-get update && apt-get install -y perl --no-install-recommends && rm -rf /var/lib/apt/lists/*
 
+RUN apt-cache search mysql
+
 ENV MYSQL_VERSION 5.7
 
 RUN { \
