@@ -8,15 +8,8 @@ RUN apt-get update && apt-get install -y perl --no-install-recommends && rm -rf 
 
 RUN apt-cache search mysql
 
-ENV MYSQL_VERSION 5.7
 
-RUN { \
-		echo mysql-server mysql-server/data-dir select ''; \
-		echo mysql-server mysql-server/root-pass password ''; \
-		echo mysql-server mysql-server/re-root-pass password ''; \
-		echo mysql-server mysql-server/remove-test-db select false; \
-	} | debconf-set-selections \
-	&& apt-get update && apt-get install -y mysql-server="${MYSQL_VERSION}"* && rm -rf /var/lib/apt/lists/* \
+RUN apt-get update && apt-get install -y mysql-server && rm -rf /var/lib/apt/lists/* \
 	&& rm -rf /var/lib/mysql && mkdir -p /var/lib/mysql && chown -R mysql:mysql /var/lib/mysql
 
 # comment out a few problematic configuration values
