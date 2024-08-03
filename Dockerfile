@@ -6,10 +6,7 @@ RUN useradd -r -g mysql mysql
 
 RUN apt-get update && apt-get install -y perl --no-install-recommends && rm -rf /var/lib/apt/lists/*
 
-RUN apt-cache search mysql
-
-
-RUN apt-get update && apt-get install -y mysql-server && rm -rf /var/lib/apt/lists/* \
+RUN apt-get update && apt-get install -y mysql-* && rm -rf /var/lib/apt/lists/* \
 	&& rm -rf /var/lib/mysql && mkdir -p /var/lib/mysql && chown -R mysql:mysql /var/lib/mysql
 
 # comment out a few problematic configuration values
